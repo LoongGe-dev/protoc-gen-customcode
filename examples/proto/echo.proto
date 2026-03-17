@@ -4,27 +4,27 @@ package echo;
 
 option go_package = "github.com/LoongGe-dev/protoc-gen-customcode/examples/proto;echopb";
 
-//start 101
+// start 101
 enum BasicCode {
-  BASIC_SUCCESS = 0;
-  CONF_NOT_EXIST = 1;  // 配置不存在
-  PARAM_INVALID = 2;   // 参数错误
+  BASIC_CODE_UNSPECIFIED = 0; // 成功
+  BASIC_CODE_CONF_NOT_EXIST = 1; // 配置不存在
+  BASIC_CODE_PARAM_INVALID = 2; // 参数错误
 }
 
-//start 102
+// start 102
 enum TeamCode {
-  TEAM_SUCCESS = 0;
-  TEAM_MEMBER_INFO_EMPTY = 1;  // 成员信息为空
-  TEAM_USER_ID_INVALID = 2;    // 用户ID无效
-  TEAM_ALREADY_IN_TEAM = 3;    // 玩家已在队伍中
-  TEAM_FULL = 4;                // 队伍已满员
+  TEAM_CODE_UNSPECIFIED = 0; // 成功
+  TEAM_CODE_MEMBER_INFO_EMPTY = 1; // 成员信息为空
+  TEAM_CODE_USER_ID_INVALID = 2; // 用户ID无效
+  TEAM_CODE_ALREADY_IN_TEAM = 3; // 玩家已在队伍中
+  TEAM_CODE_FULL = 4; // 队伍已满员
 }
 
-//start 102
+// start 103
 enum GemCode {
-  GEM_SUCCESS = 0;
-  GEM_PARAM_INVALID = 1;  // 宝石参数非法
-  GEM_NOT_FOUND = 2;      // 宝石不存在
-  GEM_SLOT_INVALID = 3;   // 槽位非法
-  GEM_SLOT_EMPTY = 4;     // 槽位为空
+  GEM_CODE_UNSPECIFIED = 0; // 成功
+  GEM_CODE_PARAM_INVALID = 1; // 宝石参数非法
+  GEM_CODE_NOT_FOUND = 2; // 宝石不存在
+  GEM_CODE_SLOT_INVALID = 3; // 槽位非法
+  GEM_CODE_SLOT_EMPTY = 4; // 槽位为空
 }

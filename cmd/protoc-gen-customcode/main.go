@@ -23,17 +23,24 @@ type EnumInfo struct {
 }
 
 func main() {
+	// 调试日志
+	fmt.Println("=== protoc-gen-customcode 开始 ===")
+
 	protogen.Options{}.Run(func(gen *protogen.Plugin) error {
 		gen.SupportedFeatures = uint64(pluginpb.CodeGeneratorResponse_FEATURE_PROTO3_OPTIONAL)
+		fmt.Printf("待处理文件数量: %d\n", len(gen.Files))
 
 		for _, f := range gen.Files {
 			if !f.Generate {
 				continue
 			}
+			fmt.Printf("正在处理: %s\n", f.Desc.Path())
 			generateFile(gen, f)
 		}
 		return nil
 	})
+
+	fmt.Println("=== protoc-gen-customcode 结束 ===")
 }
 
 func generateFile(gen *protogen.Plugin, file *protogen.File) {
