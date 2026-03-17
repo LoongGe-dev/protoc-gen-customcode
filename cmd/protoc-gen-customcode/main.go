@@ -62,7 +62,7 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 	// 处理每个枚举
 	for _, enum := range file.Enums {
 		// 获取枚举前的注释
-		start := extractStartValue(enum.Comments)
+		start := extractStartValue(enum.Comments.Leading)
 		if start == 0 {
 			continue
 		}
@@ -106,10 +106,6 @@ func generateFile(gen *protogen.Plugin, file *protogen.File) {
 }
 
 func extractStartValue(comments protogen.Comments) int {
-	if comments.Empty() {
-		return 0
-	}
-
 	// 匹配 //start 101 或 //start=101 或 //start:101 格式
 	re := regexp.MustCompile(`//start\s*[:=]?\s*(\d+)`)
 	text := string(comments)
